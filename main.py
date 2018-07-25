@@ -72,7 +72,7 @@ class NeuralNetwork:
 		# It makes a guess.
 		self.feedforward(inputs)
 		# The target inputs array is turned into a matrix.
-		targets = np.matrix(targets)
+		targets = np.matrix(targets).T
 		# Output errors are calculated.
 		output_errors = np.subtract(targets, self.layer_vals[-1])
 
@@ -122,7 +122,7 @@ class NeuralNetwork:
 if __name__ == "__main__":
 	
 	y = np.array([[0],[1],[1],[0]])
-	nn = NeuralNetwork([3,4,1], 1)
+	nn = NeuralNetwork([3,5,1], 1)
 	
 	#Example: the answer is 1 if the 1st and the 3rd list elements are 1.
 
@@ -149,6 +149,7 @@ if __name__ == "__main__":
 	]
 
 	nn.train(10000, inputs, answers, "the answer is 1 if the 1st and the 3rd list elements are 1.")
+
 
 
 
